@@ -227,21 +227,17 @@ class Message
     }
 
     /**
-     * Set the sender of the message after checking it is a valid sender
+     * Set The identifier group tag of the message
      *
-     * @param string $sender sender of the message
+     * @param string $tag The identifier group tag the message
      *
      * @return void
-     * @throws \Ovh\Exceptions\InvalidParameterException if sender is invalid
      */
-    public function setSender($sender)
-    {
-        if (!$this->Sms->checkSender($sender)) {
-            throw new \Ovh\Exceptions\InvalidParameterException("Sender parameter is invalid");
-        }
+     public function setTag($tag)
+     {
+         $this->tag = $tag;
+     }
 
-        $this->sender = $sender;
-    }
 
     private function is_gsm0338($utf8_string) {
 
